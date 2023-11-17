@@ -102,4 +102,6 @@ int main(void)
         else
             printf("v[%d] = %d\n",k, v[k]);
     }
+
+    return 0;
 }
