@@ -66,14 +66,14 @@ int file_management(void)
     int error_type = 0; //没有错误
     //这个函数的作用应该是:
     //1做一个新的文件
-    printf("Enter the name of your deck:" new_line);
-    printf(NORMAL_CHAT "Your file cannot have spaces." COLOR_RESET new_line);
+    printf("请打字文件的名字:" new_line);
+    printf(NORMAL_CHAT "文件必须没有点" COLOR_RESET new_line);
     printf(ACTION_CHAT);
     teleport:
     switch(error_type)
     {
         case 1:
-            printf(NORMAL_CHAT "You have been teleported because your file name has dots, your file name:" COLOR_RESET new_line);
+            printf(NORMAL_CHAT "你在这里因为你的文件有点，所以请问再打字文件没有点的名字:" COLOR_RESET new_line);
             for(int i = 0; filename[i] != '\0'; i++)
             {
                 if(compare_char(filename[i], '.') == 1)
@@ -81,7 +81,7 @@ int file_management(void)
                 else
                     printf("%c", filename[i]);
             }
-            printf(new_line GENERAL_CHAT "If you are stuck, just enter 0 to kill the program." COLOR_RESET new_line);
+            printf(new_line GENERAL_CHAT "为关闭程序打字0." COLOR_RESET new_line);
             printf(ACTION_CHAT);
             error_type = 0;
         break;
@@ -89,15 +89,15 @@ int file_management(void)
     scanf("%s", filename);
     if(compare_char(filename[0], '0') == 1)
     {
-        printf(GENERAL_CHAT "You killed the program, see you next time. Thank you for using my app." COLOR_RESET new_line);
+        printf(GENERAL_CHAT "你关闭程序，你用我的软件非常谢谢。" COLOR_RESET new_line);
         return 0;
     }
-    //文件的名字有没有“。”
+    //文件的名字有没有“。
     for(int index = 0;filename[index] != '\0'; index ++)
     {
         if(compare_char(filename[index], '.') == 1)
         {
-            printf(ERROR_CHAT "The file name cannot have dots." COLOR_RESET new_line);
+            printf(ERROR_CHAT "你打字文件的名字有点所以你不可以" COLOR_RESET new_line);
             error_type = 1;
             goto teleport;
         }
@@ -106,7 +106,7 @@ int file_management(void)
     file = fopen(filename, "w+");
     if(file != NULL)
     {
-        printf(NORMAL_CHAT "Deck was created successfully." COLOR_RESET new_line);
+        printf(NORMAL_CHAT "文件做完了." COLOR_RESET new_line);
         fclose(file);
     }
     return 1;
