@@ -92,7 +92,7 @@ int file_management(void)
         printf(GENERAL_CHAT "You killed the program, see you next time. Thank you for using my app." COLOR_RESET new_line);
         return 0;
     }
-    //文件的名字有不有“。”
+    //文件的名字有没有“。”
     for(int index = 0;filename[index] != '\0'; index ++)
     {
         if(compare_char(filename[index], '.') == 1)
